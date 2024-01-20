@@ -2,9 +2,8 @@
 // import './Navbar.css'
 
 import { useState } from "react";
-import FirstLinkComponent from "./FirstLinkComponent";
-import SecondLinkComponent from "./SecondLinkComponent";
 import Calculator from "./Calculator"
+import Chatify from "./Chatify";
 
 
 const Navbar = (props) => {
@@ -33,11 +32,14 @@ const Navbar = (props) => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link " aria-current="page" href="#" onClick={handleLinkClickFirst}>{props.firstLink}
+                                <a className="nav-link " aria-current="page" href="#" onClick={handleLinkClickFirst}>
+                                    {props.firstLink}
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link " aria-current="page" href="#" onClick={handleLinkClickSecond}>{props.secondLink}</a>
+                                <a className="nav-link " aria-current="page" href="#" onClick={handleLinkClickSecond}>
+                                    {props.secondLink}
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -45,7 +47,7 @@ const Navbar = (props) => {
             </nav>
             <div>
             {isFirstLinkClicked && <Calculator />}
-            {isSecondLinkClicked && <SecondLinkComponent />}
+            {isSecondLinkClicked && <Chatify/>}
             </div>
         </>
     )
