@@ -1,2 +1,2 @@
-const chatbotmsg = ["Yes","No"];
+const chatbotmsg = ["Yes","No","Maybe"];
 export default chatbotmsg;

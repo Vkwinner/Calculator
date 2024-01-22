@@ -4,16 +4,13 @@ import chatbotmsg from "../data/demoData";
 const Chatify = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
-  const [value,setValue]=useState(0);
-  let i = 0;
+  
   const handleSendMessage = () => {
     if (newMessage.trim() !== '') {
       setMessages([...messages, { content: newMessage, type: 'sent' }]);
       setNewMessage('');
       setTimeout(()=>{
-        setValue(i);
-        setMessages([chatbotmsg[1],{content: chatbotmsg[value], type: 'incoming'}])
-        setValue(i++);
+        setMessages([...messages,{content: chatbotmsg[0], type : "incoming"}])
       },3000);
     }
   };
@@ -25,7 +22,7 @@ const Chatify = () => {
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`message-container ${message.type === 'incoming' ? 'text-left' : 'text-right'}`}
+              className={`d-flex message-container ${message.type === 'sent' ? 'justify-content-end' : 'justify-content-start'}`}
               style={{ margin: '5px 0', color: message.type === 'incoming' ? 'blue' : 'green' }}
             >
               {message.content}
