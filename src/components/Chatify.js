@@ -8,7 +8,6 @@ const url = "https://bot-server-nxtd.onrender.com/"
 const Chatify = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
-  // const [id, setId] = useState(0);
 
   const handleSendMessage = () => {
     if (newMessage.trim() !== '') {
@@ -23,26 +22,27 @@ const Chatify = () => {
   const handleEnterKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleSendMessage();
-    }
+
   };
+  }
 
   return (
-    <div className="d-flex p-2 justify-content-center align-items-center mt-5 mx-5 " >
-      <div className="d-flex flex-column align-items-start border border-success border-2 rounded-4 mt-2" style={{ width: "350px", height: "500px"}}>
-        <div className="p-2 w-100 flex-fill" style={{ maxHeight: '550px', overflowY: 'auto' }} >
+    <div className="d-flex p-2 justify-content-center align-items-center mt-5 mx-5 rounded-5">
+      <div className="d-flex flex-column align-items-start border border-success border-2 rounded-4 p-2"style={{ width: '350px', height:'550px'}}>
+        <div className="w-100 flex-fill" style={{overflowY: 'auto' }} >
           {messages.map((message, index) => (
             <div
               key={index}
-              className={`message-container border rounded rounded-5 p-1 mt-3 ${message.type === 'sent' ? 'text-right' : 'text-right'}`}
-              style={{ color: message.type === 'incoming' ? 'blue' : 'green' }}
+              className={`d-flex border border-success rounded-5 p-1 mx-2 mt-2 ${message.type === 'sent' ? 'justify-content-end' : 'justify-content-start'}`}
+              style={{color: message.type === 'incoming' ? 'blue' : 'green' }}
             >
               <div>
-              <IoPerson />{message.content}
+              {message.content}<IoPerson />
               </div>
             </div>
           ))}
         </div>
-        <div className="d-flex align-self-start mt-3 mb-1 border border-4 rounded-4 w-100">
+        <div className="d-flex  mt-2  border border-4 rounded-4 w-100">
           <input className="d-flex flex-grow-1 rounded-4"
             type="text"
             value={newMessage}

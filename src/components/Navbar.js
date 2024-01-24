@@ -8,7 +8,7 @@ import Chatify from "./Chatify";
 
 const Navbar = (props) => {
     const [isFirstLinkClicked, setisFirstLinkClicked] = useState(true);
-    const [isSecondLinkClicked, setisSecondLinkClicked] = useState(true);
+    const [isSecondLinkClicked, setisSecondLinkClicked] = useState(false);
 
     const handleLinkClickFirst = () => {
             setisFirstLinkClicked(true);
