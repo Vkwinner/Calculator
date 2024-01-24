@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-// import botMessages from "../data/demoData";
 import { FcAssistant } from "react-icons/fc";
+
 import { IoPerson } from "react-icons/io5";
+import { IoChatboxEllipsesOutline } from "react-icons/io5";
+
 // import backgroundImage from '../images/chatBackground.jpg'
 const url = "https://bot-server-nxtd.onrender.com/"
 
@@ -28,7 +30,11 @@ const Chatify = () => {
 
   return (
     <div className="d-flex p-2 justify-content-center align-items-center mt-5 mx-5 rounded-5">
+      <div>
       <div className="d-flex flex-column align-items-start border border-success border-2 rounded-4 p-2"style={{ width: '350px', height:'550px'}}>
+      <div className='d-flex bg-secondary justify-content-center align-items-center text-white w-100 rounded p-2' style={{height:'40px'}}>
+      <div><IoChatboxEllipsesOutline /> Chatify</div> 
+      </div>
         <div className="w-100 flex-fill" style={{overflowY: 'auto' }} >
           {messages.map((message, index) => (
             <div
@@ -54,6 +60,7 @@ const Chatify = () => {
             Send
           </button>
         </div>
+      </div>
       </div>
     </div>
 
