@@ -5,7 +5,6 @@ import moment from 'moment';
 import { IoPerson } from "react-icons/io5";
 import { IoChatboxEllipsesOutline } from "react-icons/io5";
 
-// import backgroundImage from '../images/chatBackground.jpg'
 const url = "https://bot-server-nxtd.onrender.com/"
 
 const Chatify = () => {
@@ -22,7 +21,6 @@ const Chatify = () => {
         if (response.ok) {
           const data = await response.json();
           setBotMessages(data)
-          // console.log(botMessages);
         } else {
           console.log('Failed to fetch bot messages : ', response.statusText);
         }
@@ -76,15 +74,15 @@ const Chatify = () => {
               >
 
                 <div className='d-flex justify-content-end align-items-center border border-success rounded-4  p-2 mx-2 mt-2 ' style={{ color: 'rgb(54, 82, 173)' }}>
-                  <div>{moment().format("LT")}</div>
+                  <div className='me-auto align-self-end' style={{fontSize:'12px' }}>{moment().format("LT")}</div>
                   <div>{message.user} </div>
-                  <div><IoPerson /></div>
+                  <div className='ms-1'><IoPerson /></div>
                 </div>
                 {message.bot &&
                   <div className='d-flex justify-content-start align-items-center border border-success rounded-4  p-2 mx-2 mt-2 ' style={{ color: 'rgb(120, 148, 97)' }}>
-                    <div><FcAssistant /></div>
-                    <div>{message.bot}</div>
-                    <div>{moment().format("LT")}</div>
+                    <div className='me-1'><FcAssistant /></div>
+                    <div >{message.bot}</div>
+                    <div className='ms-auto align-self-end ' style={{fontSize:'12px' }}>{moment().format("LT")}</div>
                   </div>}
               </div>
             ))}
