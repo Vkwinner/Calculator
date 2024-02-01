@@ -70,20 +70,20 @@ const Chatify = () => {
             {chatHistory.map((message, index) => (
               <div
                 key={index}
-                className={' d-flex flex-column text-break'}
+                className={' d-flex flex-column '}
               >
 
+                <div className='d-flex justify-content-end align-items-center border border-success rounded-4  p-2 mx-2 mt-2 ' style={{ color: 'rgb(54, 82, 173)' }}>
+                  <div className='me-auto align-self-end' style={{fontSize:'13px' }}>{moment().format("LT")}</div>
+                  <div className='text-break mx-2'>{message.user} </div>
+                  <div className='ms-1'><IoPerson /></div>
+                </div>
                 {message.bot &&
                   <div className='d-flex justify-content-start align-items-center border border-success rounded-4  p-2 mx-2 mt-2 ' style={{ color: 'rgb(120, 148, 97)' }}>
                     <div className='me-1'><FcAssistant /></div>
-                    <div >{message.bot}</div>
-                    <div className='ms-auto align-self-end ' style={{fontSize:'12px' }}>{moment().format("LT")}</div>
+                    <div className='text-break mx-2' >{message.bot}</div>
+                    <div className='ms-auto align-self-end ' style={{fontSize:'13px' }}>{moment().format("LT")}</div>
                   </div>}
-                <div className='d-flex justify-content-end align-items-center border border-success rounded-4  p-2 mx-2 mt-2 ' style={{ color: 'rgb(54, 82, 173)' }}>
-                  <div className='me-auto align-self-end' style={{fontSize:'12px' }}>{moment().format("LT")}</div>
-                  <div>{message.user} </div>
-                  <div className='ms-1'><IoPerson /></div>
-                </div>
               </div>
             ))}
           </div>
