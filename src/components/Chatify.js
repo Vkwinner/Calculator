@@ -63,7 +63,7 @@ const Chatify = () => {
     <div className="d-flex p-2 justify-content-center align-items-center mt-5 mx-5 rounded-5">
       <div>
         <div className="d-flex flex-column align-items-start border border-success border-2 rounded-4 p-2" style={{ backgroundColor: 'aliceblue', width: '350px', height: '550px' }}>
-          <div className='d-flex bg-secondary justify-content-center align-items-center text-white w-100 rounded p-2' style={{ height: '40px' }}>
+          <div className='d-flex bg-secondary justify-content-center align-items-center text-white w-100 rounded p-2 mb-1' style={{ height: '40px' }}>
             <div><IoChatboxEllipsesOutline /> Chatify </div>
           </div>
           <div className="w-100 flex-fill " style={{ overflowY: 'auto' }} >
@@ -75,19 +75,19 @@ const Chatify = () => {
 
                 <div className='d-flex justify-content-end align-items-center border border-success rounded-4  p-2 mx-2 mt-2 ' style={{ color: 'rgb(54, 82, 173)' }}>
                   <div className='me-auto align-self-end' style={{fontSize:'13px' }}>{moment().format("LT")}</div>
-                  <div className='text-break mx-2'>{message.user} </div>
-                  <div className='ms-1'><IoPerson /></div>
+                  <div className='text-break ms-2 me-1'>{message.user} </div>
+                  <div ><IoPerson /></div>
                 </div>
                 {message.bot &&
                   <div className='d-flex justify-content-start align-items-center border border-success rounded-4  p-2 mx-2 mt-2 ' style={{ color: 'rgb(120, 148, 97)' }}>
-                    <div className='me-1'><FcAssistant /></div>
-                    <div className='text-break mx-2' >{message.bot}</div>
+                    <div ><FcAssistant /></div>
+                    <div className='text-break ms-1 me-2' >{message.bot}</div>
                     <div className='ms-auto align-self-end ' style={{fontSize:'13px' }}>{moment().format("LT")}</div>
                   </div>}
               </div>
             ))}
           </div>
-          <div className="d-flex  mt-2  border border-4 rounded-4 w-100">
+          <div className="d-flex  mt-1  border border-4 rounded-4 w-100">
             <input className="d-flex flex-grow-1 rounded-4 p-1"
               type="text"
               value={newMessage}
