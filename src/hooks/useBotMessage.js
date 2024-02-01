@@ -22,5 +22,3 @@ const useBotMessage = () => {
 };
 
 export default useBotMessage;
-
-
