@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FcAssistant } from "react-icons/fc";
 import moment from 'moment';
 
@@ -13,7 +13,16 @@ const Chatify = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const [botMessages, setBotMessages] = useState([]);
 
+  const bottomOfPanelRef = useRef(null);
 
+  // Auto Scroll 
+  useEffect(() => {
+    if (bottomOfPanelRef.current) {
+      bottomOfPanelRef.current.scrollIntoView();
+    }
+  })
+
+  // Fetching messages from server
   useEffect(() => {
     const fetchBotMessages = async () => {
       try {
@@ -57,8 +66,6 @@ const Chatify = () => {
     setNewMessage(e.target.value);
   }
 
-
-
   return (
     <div className="d-flex p-2 justify-content-center align-items-center mt-5 mx-5 rounded-5">
       <div>
@@ -74,7 +81,7 @@ const Chatify = () => {
               >
 
                 <div className='d-flex justify-content-end align-items-center border border-success rounded-4  p-2 mx-2 mt-2 ' style={{ color: 'rgb(54, 82, 173)' }}>
-                  <div className='me-auto align-self-end' style={{fontSize:'13px' }}>{moment().format("LT")}</div>
+                  <div className='me-auto align-self-end' style={{ fontSize: '13px' }}>{moment().format("LT")}</div>
                   <div className='text-break ms-2 me-1'>{message.user} </div>
                   <div ><IoPerson /></div>
                 </div>
@@ -82,10 +89,12 @@ const Chatify = () => {
                   <div className='d-flex justify-content-start align-items-center border border-success rounded-4  p-2 mx-2 mt-2 ' style={{ color: 'rgb(120, 148, 97)' }}>
                     <div ><FcAssistant /></div>
                     <div className='text-break ms-1 me-2' >{message.bot}</div>
-                    <div className='ms-auto align-self-end ' style={{fontSize:'13px' }}>{moment().format("LT")}</div>
+                    <div className='ms-auto align-self-end ' style={{ fontSize: '13px' }}>{moment().format("LT")}</div>
                   </div>}
+
               </div>
             ))}
+            <div ref={bottomOfPanelRef}></div>
           </div>
           <div className="d-flex  mt-1  border border-4 rounded-4 w-100">
             <input className="d-flex flex-grow-1 rounded-4 p-1"
